@@ -70,7 +70,17 @@ PanelWindow {
                     return surface0
                 }
 
+                Behavior on color {
+                    ColorAnimation { duration: 200; easing.type: Easing.OutCubic }
+                }
+
+                scale: mouseArea.containsPress ? 0.88 : 1.0
+                Behavior on scale {
+                    NumberAnimation { duration: 120; easing.type: Easing.OutCubic }
+                }
+
                 MouseArea {
+                    id: mouseArea
                     anchors.fill: parent
                     onClicked: modelData.activate()
                     cursorShape: Qt.PointingHandCursor
@@ -82,7 +92,11 @@ PanelWindow {
                     font.pixelSize: 13
                     font.family: monoFont
                     font.bold: modelData.focused
-                    color: modelData.focused ? mantle : (modelData.active ? textColor : overlay0)
+                    color: modelData.focused ? "#000000" : textColor
+
+                    Behavior on color {
+                        ColorAnimation { duration: 200; easing.type: Easing.OutCubic }
+                    }
                 }
             }
         }
