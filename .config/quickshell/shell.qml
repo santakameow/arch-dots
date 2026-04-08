@@ -5,7 +5,7 @@ import QtQuick.Layouts
 
 PanelWindow {
     anchors {
-        bottom: true
+        top: true
         left: true
         right: true
     }
@@ -13,20 +13,20 @@ PanelWindow {
     implicitHeight: 36
 
     // Catppuccin Mocha palette
-    readonly property color base:     "#1e1e2e"
-    readonly property color mantle:   "#181825"
+    readonly property color base: "#1e1e2e"
+    readonly property color mantle: "#181825"
     readonly property color surface0: "#313244"
     readonly property color surface1: "#45475a"
     readonly property color overlay0: "#6c7086"
-    readonly property color textColor:"#cdd6f4"
+    readonly property color textColor: "#cdd6f4"
     readonly property color subtext1: "#bac2de"
-    readonly property color teal:     "#94e2d5"
+    readonly property color teal: "#94e2d5"
     readonly property color lavender: "#b4befe"
-    readonly property color blue:     "#89b4fa"
-    readonly property color mauve:    "#cba6f7"
-    readonly property color peach:    "#fab387"
-    readonly property color green:    "#a6e3a1"
-    readonly property color red:      "#f38ba8"
+    readonly property color blue: "#89b4fa"
+    readonly property color mauve: "#cba6f7"
+    readonly property color peach: "#fab387"
+    readonly property color green: "#a6e3a1"
+    readonly property color red: "#f38ba8"
 
     readonly property string monoFont: "JetBrainsMono Nerd Font"
 
@@ -65,18 +65,26 @@ PanelWindow {
                 radius: 6
 
                 color: {
-                    if (modelData.focused) return teal
-                    if (modelData.active)  return surface1
-                    return surface0
+                    if (modelData.focused)
+                        return teal;
+                    if (modelData.active)
+                        return surface1;
+                    return surface0;
                 }
 
                 Behavior on color {
-                    ColorAnimation { duration: 200; easing.type: Easing.OutCubic }
+                    ColorAnimation {
+                        duration: 200
+                        easing.type: Easing.OutCubic
+                    }
                 }
 
                 scale: mouseArea.containsPress ? 0.88 : 1.0
                 Behavior on scale {
-                    NumberAnimation { duration: 120; easing.type: Easing.OutCubic }
+                    NumberAnimation {
+                        duration: 120
+                        easing.type: Easing.OutCubic
+                    }
                 }
 
                 MouseArea {
@@ -95,7 +103,10 @@ PanelWindow {
                     color: modelData.focused ? "#000000" : textColor
 
                     Behavior on color {
-                        ColorAnimation { duration: 200; easing.type: Easing.OutCubic }
+                        ColorAnimation {
+                            duration: 200
+                            easing.type: Easing.OutCubic
+                        }
                     }
                 }
             }
