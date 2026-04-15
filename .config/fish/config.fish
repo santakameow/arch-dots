@@ -1,13 +1,17 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+    # things to development
     source "$HOME/.cargo/env.fish"
 
+    # starship
     starship init fish | source
 
+    # zoxide
     zoxide init fish | source
     alias cd="z"
 
+    # yazi
     function y
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
         command yazi $argv --cwd-file="$tmp"
@@ -20,4 +24,9 @@ if status is-interactive
     # some useful aliases
     alias :q="exit"
     alias lgit="lazygit"
+    alias vim="nvim"
+    alias vi="nvim"
+
+    # environment
+    set -gx EDITOR nvim
 end
