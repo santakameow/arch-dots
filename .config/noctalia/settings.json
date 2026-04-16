@@ -652,7 +652,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/sakanai/Pictures/walls/catpuccin-like_walls/",
+        "directory": "/home/sakanai/Pictures/walls_catppuccin",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
