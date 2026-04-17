@@ -1,7 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-
-    # things to development
+    
+    # things for development
     source "$HOME/.cargo/env.fish"
 
     # starship
@@ -29,4 +29,5 @@ if status is-interactive
 
     # environment
     set -gx EDITOR nvim
+    set -g fish_greeting
 end
