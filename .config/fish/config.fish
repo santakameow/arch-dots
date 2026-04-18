@@ -32,3 +32,6 @@ if status is-interactive
     set -gx EDITOR nvim
     set -g fish_greeting
 end
+
+# opencode
+fish_add_path /home/sakanai/.opencode/bin
