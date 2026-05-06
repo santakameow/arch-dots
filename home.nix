@@ -77,6 +77,12 @@
     userEmail = "sakanai@cum.army";
   };
 
+  programs.kitty.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    extraConfig = builtins.readFile ./hyprland.conf;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
