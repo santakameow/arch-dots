@@ -1,4 +1,4 @@
-{ config, pkgs, nixgl, ... }:
+{ config, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -21,6 +21,12 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+    pkgs.celluloid
+    pkgs.gowall
+    pkgs.yazi
+    pkgs.neovim
+    pkgs.zoxide
+    pkgs.starship
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -75,6 +81,17 @@
     enable = true;
     settings.user.name = "santakameow";
     settings.user.email = "sakanai@cum.army";
+  };
+  
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      side-by-side = true;
+      line-numbers = true;
+      syntax-theme = "gruvbox-dark";
+    };
   };
 
   # Let Home Manager install and manage itself.
