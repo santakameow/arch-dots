@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixgl, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -73,14 +73,8 @@
 
   programs.git = {
     enable = true;
-    userName = "santakameow";
-    userEmail = "sakanai@cum.army";
-  };
-
-  programs.kitty.enable = true;
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = builtins.readFile ./hyprland.conf;
+    settings.user.name = "santakameow";
+    settings.user.email = "sakanai@cum.army";
   };
 
   # Let Home Manager install and manage itself.
