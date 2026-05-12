@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "sakanai";
@@ -24,9 +25,12 @@
     pkgs.celluloid
     pkgs.gowall
     pkgs.yazi
-    pkgs.neovim
     pkgs.zoxide
     pkgs.starship
+    pkgs.opencode
+    pkgs.rustup
+    pkgs.thunderbird
+    pkgs.opencode
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
