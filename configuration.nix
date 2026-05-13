@@ -21,6 +21,25 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # nvidia
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    NVD_BACKEND = "direct";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+  };
+
   time.timeZone = "Europe/Moscow";
 
   # Select internationalisation properties.

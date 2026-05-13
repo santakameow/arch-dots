@@ -20,21 +20,13 @@ hl.monitor({
 -- env --
 ---------
 
-hl.env("XCURSOR_THEME", "sweet-cursors")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_STYLE_OVERRIDE", "kvantum")
-hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
-hl.env("GDK_BACKEND", "wayland,x11")
-hl.env("SDL_VIDEODRIVER", "wayland,x11,windows")
-hl.env("CLUTTER_BACKEND", "wayland")
-hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
-hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
 hl.env("NIXOS_OZONE_WL", "1")
 
 ---------------
@@ -126,6 +118,7 @@ hl.config({
 	},
 	cursor = {
 		hotspot_padding = 1,
+    no_hardware_cursors = true,
 	},
 	dwindle = {
 		preserve_split = true,
