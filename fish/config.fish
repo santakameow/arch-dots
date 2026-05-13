@@ -12,7 +12,6 @@ set -U __done_notification_urgency_level low
 ## Environment setup
 # variables
 set -gx EDITOR nvim
-set -gx LD_LIBRARY_PATH /usr/lib
 
 # Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile
@@ -69,22 +68,7 @@ function history
     builtin history --show-time='%F %T '
 end
 
-function backup --argument filename
-    cp $filename $filename.bak
-end
-
-# Copy DIR1 DIR2
-function copy
-    set count (count $argv | tr -d \n)
-    if test "$count" = 2; and test -d "$argv[1]"
-        set from (echo $argv[1] | trim-right /)
-        set to (echo $argv[2])
-        command cp -r $from $to
-    else
-        command cp $argv
-    end
-end
-
+# yazi wrapper
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     command yazi $argv --cwd-file="$tmp"
@@ -104,15 +88,6 @@ starship init fish | source
 alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
 
 # Common use
-alias grubup="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias tarnow='tar -acf '
-alias untar='tar -zxvf '
-alias wget='wget -c '
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias cd='z'
 
 alias mc1 'sudo tmux -S /tmp/mc1.sock attach -t mc1'

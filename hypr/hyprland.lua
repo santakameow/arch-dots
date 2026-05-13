@@ -1,12 +1,14 @@
 ---------------
 -- variables --
 ---------------
+
 local terminal = "kitty"
 local mainMod = "SUPER"
 
 -------------
 -- monitor --
 -------------
+
 hl.monitor({
 	output = "",
 	mode = "preferred",
@@ -17,6 +19,7 @@ hl.monitor({
 ---------
 -- env --
 ---------
+
 hl.env("XCURSOR_THEME", "sweet-cursors")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
@@ -37,6 +40,7 @@ hl.env("NIXOS_OZONE_WL", "1")
 ---------------
 -- autostart --
 ---------------
+
 hl.on("hyprland.start", function()
 	hl.exec_cmd("caelestia shell -d")
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -46,6 +50,10 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("mpris-proxy")
 	hl.exec_cmd("caelestia resizer -d")
 end)
+
+-----------
+-- candy --
+-----------
 
 hl.config({
 	general = {
@@ -151,6 +159,10 @@ hl.config({
 	},
 })
 
+----------------
+-- animations --
+----------------
+
 hl.curve("emphasizedDecel", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } })
 hl.curve("emphasizedAccel", { type = "bezier", points = { { 0.3, 0 }, { 0.8, 0.15 } } })
 hl.curve("standard", { type = "bezier", points = { { 0.2, 0 }, { 0, 1 } } })
@@ -174,6 +186,10 @@ hl.animation({
 	bezier = "specialWorkSwitch",
 	style = "slidefadevert 15%",
 })
+
+------------------
+-- window rules --
+------------------
 
 local suppressMaximizeRule = hl.window_rule({
 	name = "suppress-maximize-events",
@@ -251,6 +267,10 @@ hl.window_rule({
 	float = true,
 	no_initial_focus = true,
 })
+
+--------------
+-- keybinds --
+--------------
 
 local workspace_keys = { "Q", "W", "E", "R", "T", "A", "S", "D", "F", "G" }
 for i, key in ipairs(workspace_keys) do
@@ -334,6 +354,7 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
 
 hl.layer_rule({
 	name = "no-anim-caelestia-border",
