@@ -103,6 +103,7 @@
 
   xdg.configFile."hypr".source = ./hypr;
   xdg.configFile."fish".source = ./fish;
+  xdg.configFile."nvim".source = ./nvim;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
