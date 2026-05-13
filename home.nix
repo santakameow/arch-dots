@@ -34,6 +34,7 @@
     pkgs.nh
     pkgs.firefox
     pkgs.neovim
+    pkgs.discord
 
     inputs.caelestia-cli.packages.${pkgs.system}.default
     inputs.caelestia-shell.packages.${pkgs.system}.default
@@ -103,8 +104,6 @@
     };
   };
   
-  programs.flatpak.enable = true;
-
   xdg.configFile."hypr".source = ./hypr;
   xdg.configFile."fish".source = ./fish;
   xdg.configFile."nvim".source = ./nvim;

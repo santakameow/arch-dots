@@ -32,6 +32,7 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
+hl.env("NIXOS_OZONE_WL", "1")
 
 ---------------
 -- autostart --
@@ -48,7 +49,7 @@ end)
 
 hl.config({
 	general = {
-		gaps_in = 5,
+		gaps_in = 10,
 		gaps_out = 10,
 		gaps_workspaces = 20,
 		border_size = 1,
