@@ -32,6 +32,8 @@
     pkgs.thunderbird
     pkgs.opencode
     pkgs.nh
+    pkgs.firefox
+    pkgs.neovim
 
     inputs.caelestia-cli.packages.${pkgs.system}.default
     inputs.caelestia-shell.packages.${pkgs.system}.default
@@ -100,6 +102,8 @@
       syntax-theme = "gruvbox-dark";
     };
   };
+  
+  programs.flatpak.enable = true;
 
   xdg.configFile."hypr".source = ./hypr;
   xdg.configFile."fish".source = ./fish;

@@ -1,11 +1,15 @@
 {
-  description = "Home Manager configuration of sakanai";
+  description = "NixOS + Home manager";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     caelestia-shell = {
@@ -18,23 +22,20 @@
     };
   };
 
-  outputs =
-    inputs@{ nixpkgs, home-manager, ... }:
-    let
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+    nixosConfigurations.azari-v4 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations."sakanai" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-        extraSpecialArgs = { inherit inputs; };
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./configuration.nix
+	home-manager.nixosModules.home-manager
+	{
+          home-manager.useGlobalPkgs = true;
+	  home-manager.useUserPackages = true;
+	  home-manager.users.sakanai = import ./home.nix;
+	  home-manager.extraSpecialArgs = { inherit inputs; };
+	}
+      ];
     };
+  };
 }
