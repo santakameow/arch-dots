@@ -59,6 +59,7 @@
     description = "sakanai";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
@@ -86,6 +87,8 @@
   programs.steam = {
     enable = true;
   };
+
+  programs.fish.enable = true;
 
   services.flatpak.enable = true;
 

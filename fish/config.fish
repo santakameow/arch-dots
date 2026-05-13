@@ -1,5 +1,5 @@
 ## Source from conf.d before our fish config
-source ~/.config/fish/done.fish
+source ~/.config/fish/conf.d/done.fish
 
 # Format man pages
 set -x MANROFFOPT -c
