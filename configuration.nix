@@ -22,6 +22,7 @@
   networking.networkmanager.enable = true;
 
   # nvidia
+  hardware.graphics.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
@@ -36,6 +37,7 @@
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
     NVD_BACKEND = "direct";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
@@ -84,6 +86,7 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 
   # vpn client

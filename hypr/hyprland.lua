@@ -27,6 +27,11 @@ hl.env("QT_STYLE_OVERRIDE", "kvantum")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("NVD_BACKEND", "direct")
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+hl.env("GBM_BACKEND", "nvidia-drm")
 hl.env("NIXOS_OZONE_WL", "1")
 
 ---------------
@@ -118,7 +123,6 @@ hl.config({
 	},
 	cursor = {
 		hotspot_padding = 1,
-    no_hardware_cursors = true,
 	},
 	dwindle = {
 		preserve_split = true,
